@@ -1,0 +1,48 @@
+﻿@page "/student"
+@inject StudentService service
+@rendermode InteractiveServer
+
+<h3>Student Management</h3>
+
+<input placeholder="Id" @bind="student.Student_Id" />
+<input placeholder="Name" @bind="student.Student_Name" />
+<input placeholder="Class" @bind="student.Student_Class" />
+
+<button @onclick="delete">delete</button>
+<button @onclick="Add">Add</button>
+<button @onclick="Load">View All</button>
+
+<table>
+    @foreach (var s in students)
+    {
+        <tr>
+            <td>@s.Student_Id</td>
+            <td>@s.Student_Name</td>
+            <td>@s.Student_Class</td>
+        </tr>
+    }
+</table>
+
+@code {
+    Student student = new();
+    List<Student> students = new();
+
+    void Add()
+    {
+        service.AddStudent(student);
+        Load();
+        student = new();
+    }
+
+    void Load()
+    {
+        students = service.GetAll();
+    }
+    void delete()
+    {
+        service.DeleteStudent(student.Student_Id);
+        Load();
+
+
+    }
+}

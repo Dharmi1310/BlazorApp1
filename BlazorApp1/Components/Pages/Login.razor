@@ -1,0 +1,24 @@
+﻿@page "/"
+@inject StudentService service
+@inject NavigationManager nav
+@rendermode InteractiveServer
+
+<h3>Login</h3>
+
+<input placeholder="UserId" @bind="userid" /><br />
+<input type="password" placeholder="Password" @bind="password" /><br />
+<button @onclick="login">Login</button>
+
+<p style="color:red">@message</p>
+
+@code {
+    string userid, password, message;
+
+    void login()
+    {
+        if (service.ValidateUser(userid, password))
+            nav.NavigateTo("/student");
+        else
+            message = "Invalid UserId or Password";
+    }
+}
