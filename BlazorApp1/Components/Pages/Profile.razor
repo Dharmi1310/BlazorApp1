@@ -1,0 +1,128 @@
+﻿@page "/profile"
+
+<div class="profile-container">
+
+    <div class="profile-card">
+        <div class="profile-header">
+            <div class="avatar">👤</div>
+            <h2>Rahul Sharma</h2>
+            <p class="userid">rahul.sharma01</p>
+        </div>
+
+        <div class="profile-body">
+
+            <div class="info-row">
+                <span class="label">Student ID</span>
+                <span class="value">STU1023</span>
+            </div>
+
+            <div class="info-row">
+                <span class="label">Course</span>
+                <span class="value">B.Tech – Computer Science</span>
+            </div>
+
+            <div class="info-row">
+                <span class="label">Year</span>
+                <span class="value">3rd Year</span>
+            </div>
+
+            <div class="info-row">
+                <span class="label">Email</span>
+                <span class="value">rahul.sharma@college.edu</span>
+            </div>
+
+            <div class="info-row">
+                <span class="label">Phone</span>
+                <span class="value">+91 98765 43210</span>
+            </div>
+
+        </div>
+
+        <div class="profile-footer">
+            <button class="btn edit-btn">Edit Profile</button>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .profile-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .profile-card {
+        width: 440px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        overflow: hidden;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .profile-header {
+        background: linear-gradient(to right, #4facfe, #00c6fb);
+        color: white;
+        text-align: center;
+        padding: 25px 20px;
+    }
+
+    .avatar {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 10px;
+        background: white;
+        color: #3498db;
+        border-radius: 50%;
+        font-size: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .userid {
+        font-size: 13px;
+        opacity: 0.9;
+    }
+
+    .profile-body {
+        padding: 20px;
+    }
+
+    .info-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .label {
+        font-weight: 600;
+        color: #555;
+    }
+
+    .value {
+        color: #2c3e50;
+    }
+
+    .profile-footer {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .edit-btn {
+        background: #3498db;
+        color: white;
+        border: none;
+        padding: 8px 18px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .edit-btn:hover {
+            background: #2980b9;
+        }
+
+</style>
+

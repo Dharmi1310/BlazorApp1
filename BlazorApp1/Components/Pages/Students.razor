@@ -2,27 +2,6 @@
 @inject StudentService service
 @rendermode InteractiveServer
 
-<h3>Student Management</h3>
-
-<input placeholder="Id" @bind="student.Student_Id" />
-<input placeholder="Name" @bind="student.Student_Name" />
-<input placeholder="Class" @bind="student.Student_Class" />
-
-<button @onclick="delete">delete</button>
-<button @onclick="Add">Add</button>
-<button @onclick="Load">View All</button>
-
-<table>
-    @foreach (var s in students)
-    {
-        <tr>
-            <td>@s.Student_Id</td>
-            <td>@s.Student_Name</td>
-            <td>@s.Student_Class</td>
-        </tr>
-    }
-</table>
-
 @code {
     Student student = new();
     List<Student> students = new();
@@ -43,6 +22,91 @@
         service.DeleteStudent(student.Student_Id);
         Load();
 
-
     }
 }
+
+
+<div class="student-container">
+
+    <h2 class="page-title">Student Management Portal</h2>
+
+    <!-- Form Card -->
+    <div class="form-card">
+        <h4>Add / Delete Student</h4>
+
+        <div class="form-row">
+            <input class="input-box" placeholder="Student ID" @bind="student.Student_Id" />
+            <input class="input-box" placeholder="Student Name" @bind="student.Student_Name" />
+            <input class="input-box" placeholder="Class" @bind="student.Student_Class" />
+        </div>
+
+        <div class="button-row">
+            <button class="btn add-btn" @onclick="Add">Add Student</button>
+            <button class="btn delete-btn" @onclick="delete">Delete</button>
+            <button class="btn view-btn" @onclick="Load">View All</button>
+        </div>
+    </div>
+
+    <!-- Table Card -->
+    <div class="table-card">
+        <h4>Student List</h4>
+
+        <table class="student-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Class</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var s in students)
+                {
+                    <tr>
+                        <td>@s.Student_Id</td>
+                        <td>@s.Student_Name</td>
+                        <td>@s.Student_Class</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <nav class="sidebar">
+        <div class="nav-header">
+            <h3>Student Portal</h3>
+        </div>
+
+        <ul class="nav-list">
+            <li>
+                <NavLink href="/" class="nav-link" Match="NavLinkMatch.All">
+                    🏠 Logout
+                </NavLink>
+            </li>
+
+            <li>
+                <NavLink href="/profile" class="nav-link">
+                    👤 Profile
+                </NavLink>
+            </li>
+
+            <li>
+                <NavLink href="/student" class="nav-link">
+                    ⚙️ Settings
+                </NavLink>
+            </li>
+
+            <li>
+                <NavLink href="/help" class="nav-link">
+                    ❓ Help
+                </NavLink>
+            </li>
+
+            <li class="logout">
+                <NavLink href="/login" class="nav-link">
+                    🚪 Logout
+                </NavLink>
+            </li>
+        </ul>
+    </nav>
+
+</div>

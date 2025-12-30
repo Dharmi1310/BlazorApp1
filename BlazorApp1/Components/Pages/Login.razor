@@ -2,7 +2,7 @@
 @inject StudentService service
 @inject NavigationManager nav
 @rendermode InteractiveServer
-
+<!--
 <h3>Login</h3>
 
 <input placeholder="UserId" @bind="userid" /><br />
@@ -10,6 +10,91 @@
 <button @onclick="login">Login</button>
 
 <p style="color:red">@message</p>
+-->
+<div class="login-container">
+    <div class="login-card">
+        <h2 class="title">Student Portal Login</h2>
+        <p class="subtitle">Access your academic dashboard</p>
+
+        <input class="input-box" placeholder="User ID" @bind="userid" />
+        <input class="input-box" type="password" placeholder="Password" @bind="password" />
+
+        <button class="login-btn" @onclick="login">Login</button>
+
+        @if (!string.IsNullOrEmpty(message))
+        {
+            <p class="error">@message</p>
+        }
+    </div>
+</div>
+<style>
+
+    .login-container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, #2c3e50, #3498db);
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .login-card {
+        width: 350px;
+        padding: 30px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    .title {
+        margin-bottom: 5px;
+        color: #2c3e50;
+    }
+
+    .subtitle {
+        margin-bottom: 20px;
+        color: #7f8c8d;
+        font-size: 14px;
+    }
+
+    .input-box {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+    }
+
+        .input-box:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+    .login-btn {
+        width: 100%;
+        padding: 10px;
+        margin-top: 15px;
+        background: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        .login-btn:hover {
+            background: #2980b9;
+        }
+
+    .error {
+        margin-top: 15px;
+        color: red;
+        font-size: 14px;
+    }
+
+</style>
 
 @code {
     string userid, password, message;

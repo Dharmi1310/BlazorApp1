@@ -8,11 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MySql.Data" Version="9.5.0" />
+    <Compile Remove="Controller\**" />
+    <Content Remove="Controller\**" />
+    <EmbeddedResource Remove="Controller\**" />
+    <None Remove="Controller\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controller\" />
+    <Content Remove="wwwroot\lib\login.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="9.5.0" />
   </ItemGroup>
 
 </Project>

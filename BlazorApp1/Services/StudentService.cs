@@ -4,7 +4,6 @@ using MySql.Data.MySqlClient;
 namespace BlazorApp1.Services
 {
 
-
     public class StudentService
     {
         private readonly string _conn;
@@ -48,7 +47,7 @@ namespace BlazorApp1.Services
             using var con = new MySqlConnection(_conn);
             con.Open();
 
-            string query = "SELECT * FROM student";
+            string query = "SELECT * FROM student order by Student_Id ";
             using var cmd = new MySqlCommand(query, con);
             using var reader = cmd.ExecuteReader();
 
