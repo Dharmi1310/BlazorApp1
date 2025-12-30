@@ -126,6 +126,10 @@ h1:focus {
     background: #3498db;
     color: white;
 }
+.update-btn {
+    background-color: #e3c710;
+    color: white;
+}
 
 .btn:hover {
     opacity: 0.9;

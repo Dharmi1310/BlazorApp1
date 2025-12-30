@@ -13,6 +13,12 @@
         student = new();
     }
 
+    void update()
+    {
+        service.UpdateStudent(student);
+        student = new();
+    }
+
     void Load()
     {
         students = service.GetAll();
@@ -44,6 +50,7 @@
             <button class="btn add-btn" @onclick="Add">Add Student</button>
             <button class="btn delete-btn" @onclick="delete">Delete</button>
             <button class="btn view-btn" @onclick="Load">View All</button>
+            <button class="btn update-btn" @onclick="update">Update</button>
         </div>
     </div>
 
@@ -77,11 +84,7 @@
         </div>
 
         <ul class="nav-list">
-            <li>
-                <NavLink href="/" class="nav-link" Match="NavLinkMatch.All">
-                    🏠 Logout
-                </NavLink>
-            </li>
+           
 
             <li>
                 <NavLink href="/profile" class="nav-link">
@@ -102,7 +105,7 @@
             </li>
 
             <li class="logout">
-                <NavLink href="/login" class="nav-link">
+                <NavLink href="/" class="nav-link">
                     🚪 Logout
                 </NavLink>
             </li>

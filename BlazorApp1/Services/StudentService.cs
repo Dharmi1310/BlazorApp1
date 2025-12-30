@@ -28,6 +28,25 @@ namespace BlazorApp1.Services
             cmd.ExecuteNonQuery();
         }
 
+        public void UpdateStudent(Student st)
+        {
+            using var con = new MySqlConnection(_conn);
+            con.Open();
+
+            string query = @"UPDATE student 
+                     SET Student_Name = @name,
+                         Student_Class = @class
+                     WHERE Student_Id = @id";
+
+            using var cmd = new MySqlCommand(query, con);
+
+            cmd.Parameters.AddWithValue("@id", st.Student_Id);
+            cmd.Parameters.AddWithValue("@name", st.Student_Name);
+            cmd.Parameters.AddWithValue("@class", st.Student_Class);
+
+            cmd.ExecuteNonQuery();
+        }
+
         public void DeleteStudent(int id)
         {
             using var con = new MySqlConnection(_conn);

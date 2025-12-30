@@ -1,19 +1,22 @@
 ﻿@page "/profile"
+@inject StudentService service
+@inject NavigationManager nav
+@rendermode InteractiveServer
 
 <div class="profile-container">
 
     <div class="profile-card">
         <div class="profile-header">
             <div class="avatar">👤</div>
-            <h2>Rahul Sharma</h2>
-            <p class="userid">rahul.sharma01</p>
+            <h2>Dharmendra Padala</h2>
+            <p class="userid">dharmi.padala@01</p>
         </div>
 
         <div class="profile-body">
 
             <div class="info-row">
                 <span class="label">Student ID</span>
-                <span class="value">STU1023</span>
+                <span class="value">STU001</span>
             </div>
 
             <div class="info-row">
@@ -23,26 +26,57 @@
 
             <div class="info-row">
                 <span class="label">Year</span>
-                <span class="value">3rd Year</span>
+                <span class="value">4th Year</span>
             </div>
 
             <div class="info-row">
                 <span class="label">Email</span>
-                <span class="value">rahul.sharma@college.edu</span>
+                <span class="value">dharmendrapadala@gmail.com</span>
             </div>
 
             <div class="info-row">
                 <span class="label">Phone</span>
-                <span class="value">+91 98765 43210</span>
+                <span class="value">+91 99895 05229</span>
             </div>
 
         </div>
 
         <div class="profile-footer">
-            <button class="btn edit-btn">Edit Profile</button>
+            <button class="btn edit-btn" @onclick="edit">Edit Profile</button>
         </div>
     </div>
+    <nav class="sidebar">
+        <div class="nav-header">
+            <h3>Student Portal</h3>
+        </div>
 
+        <ul class="nav-list">
+           
+            <li>
+                <NavLink href="/profile" class="nav-link">
+                    👤 Profile
+                </NavLink>
+            </li>
+
+            <li>
+                <NavLink href="/student" class="nav-link">
+                    ⚙️ Settings
+                </NavLink>
+            </li>
+
+            <li>
+                <NavLink href="/help" class="nav-link">
+                    ❓ Help
+                </NavLink>
+            </li>
+
+            <li class="logout">
+                <NavLink href="/" class="nav-link">
+                    🚪 Logout
+                </NavLink>
+            </li>
+        </ul>
+    </nav>
 </div>
 
 <style>
@@ -125,4 +159,17 @@
         }
 
 </style>
+@code{
 
+    Student student = new();
+    List<Student> students = new();
+
+    void edit()
+    {
+        nav.NavigateTo("/student");
+       
+
+    }
+
+    
+}
