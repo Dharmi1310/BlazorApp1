@@ -1,2 +1,20 @@
 ﻿@page "/help"
+@inject NavigationManager nav
+
 <h3>There is No-one to help<br /> So help yourself</h3>
+<button class="exit-btn" @onclick="exit">Exit</button>
+<style>
+	.exit-btn{
+		
+		background-color: tomato;
+		color: white;
+	}
+</style>
+
+@code{
+	void exit()
+	{
+		nav.NavigateTo("/student");
+	}
+
+}
