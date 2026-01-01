@@ -18,7 +18,7 @@ namespace BlazorApp1.Services
             using var con = new MySqlConnection(_conn);
             con.Open();
 
-            string query = "INSERT INTO student(Student_Id,Student_Name,Student_Class) VALUES(@id,@name,@class)";
+            string query = "INSERT INTO student(Student_Id,Student_Name,Student_Class,userid,phone_number,email_id) VALUES(@id,@name,@class,@name,'9989505220','xyz@email.com')";
             using var cmd = new MySqlCommand(query, con);
 
             cmd.Parameters.AddWithValue("@id", st.Student_Id);
