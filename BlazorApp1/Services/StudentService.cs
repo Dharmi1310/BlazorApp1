@@ -1,6 +1,6 @@
-﻿
-using BlazorApp1.Models;
+﻿using BlazorApp1.Models;
 using MySql.Data.MySqlClient;
+using System.Collections.Generic;
 namespace BlazorApp1.Services
 {
 
@@ -17,7 +17,7 @@ namespace BlazorApp1.Services
         {
             using var con = new MySqlConnection(_conn);
             con.Open();
-
+            
             string query = "INSERT INTO student(Student_Id,Student_Name,Student_Class,userid,phone_number,email_id) VALUES(@id,@name,@class,@name,'9989505220','xyz@email.com')";
             using var cmd = new MySqlCommand(query, con);
 
@@ -58,7 +58,7 @@ namespace BlazorApp1.Services
 
             cmd.ExecuteNonQuery();
         }
-
+      
         public List<Student> GetAll()
         {
             var list = new List<Student>();
@@ -66,7 +66,7 @@ namespace BlazorApp1.Services
             using var con = new MySqlConnection(_conn);
             con.Open();
 
-            string query = "SELECT * FROM student order by Student_Id ";
+            string query = "SELECT * FROM student order by student_id";
             using var cmd = new MySqlCommand(query, con);
             using var reader = cmd.ExecuteReader();
 
@@ -74,9 +74,12 @@ namespace BlazorApp1.Services
             {
                 list.Add(new Student
                 {
+                    
                     Student_Id = reader.GetInt32("Student_Id"),
                     Student_Name = reader.GetString("Student_Name"),
-                    Student_Class = reader.GetInt32("Student_Class")
+                    Student_Class = reader.GetInt32("Student_Class"),
+                    Phone_number = reader.GetString("Phone_number"),
+                    email_id=reader.GetString("email_id")
                 });
             }
             return list;
@@ -87,13 +90,14 @@ namespace BlazorApp1.Services
             using var con = new MySqlConnection(_conn);
             con.Open();
 
-            string query = "SELECT COUNT(*) FROM userdetails WHERE userid=@u AND password=@p";
+            string query = "SELECT COUNT(*) FROM student WHERE userid=@userid AND password=@password";
             using var cmd = new MySqlCommand(query, con);
 
-            cmd.Parameters.AddWithValue("@u", userid);
-            cmd.Parameters.AddWithValue("@p", password);
-
+            cmd.Parameters.AddWithValue("@userid", userid);
+            cmd.Parameters.AddWithValue("@password", password);
+            
             return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
         }
+
     }
 }

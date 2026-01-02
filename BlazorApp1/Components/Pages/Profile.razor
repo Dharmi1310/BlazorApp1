@@ -2,65 +2,98 @@
 @inject StudentService service
 @inject NavigationManager nav
 @rendermode InteractiveServer
+<body>
 
-<div class="profile-container">
+<div class="profile-container" >
+<div class="profile-card" >
+<div class="profile-header" >
+<div class="avatar" > 👤</div >
+<h2 > Dharmendra Padala</h2 >
+<p class="userid" > dharmi.padala@01</p >
+</div >
 
-    <div class="profile-card">
-        <div class="profile-header">
-            <div class="avatar">👤</div>
-            <h2>Dharmendra Padala</h2>
-            <p class="userid">dharmi.padala@01</p>
-        </div>
+<div class="profile-body" >
 
-        <div class="profile-body">
+<div class="info-row" >
+<span class="label" > Student ID</span >
+<span class="value" > STU001</span >
+</div >
 
-            <div class="info-row">
-                <span class="label">Student ID</span>
-                <span class="value">STU001</span>
-            </div>
+<div class="info-row" >
+<span class="label" > Course</span >
+<span class="value" > B.Tech – Computer Science</span >
+</div >
 
-            <div class="info-row">
-                <span class="label">Course</span>
-                <span class="value">B.Tech – Computer Science</span>
-            </div>
+<div class="info-row" >
+<span class="label" > Year</span >
+<span class="value" > 4th Year</span >
+</div >
 
-            <div class="info-row">
-                <span class="label">Year</span>
-                <span class="value">4th Year</span>
-            </div>
+<div class="info-row" >
+<span class="label" > Email</span >
+<span class="value" > dharmendrapadala@gmail.com</span >
+</div >
 
-            <div class="info-row">
-                <span class="label">Email</span>
-                <span class="value">dharmendrapadala@gmail.com</span>
-            </div>
+<div class="info-row" >
+<span class="label" > Phone</span >
+<span class="value" > +91 99895 05229</span >
+</div >
 
-            <div class="info-row">
-                <span class="label">Phone</span>
-                <span class="value">+91 99895 05229</span>
-            </div>
+</div >
 
-        </div>
+<div class="profile-footer" >
+<button class="btn edit-btn" @onclick="edit" > Edit Profile</button >
+</div >
+</div >
+<nav class="sidebar" >
+<div class="nav-header" >
+<h3 > Student Portal</h3 >
+</div >
 
-        <div class="profile-footer">
-            <button class="btn edit-btn" @onclick="edit">Edit Profile</button>
-        </div>
-    </div>
-    <nav class="sidebar">
-        <div class="nav-header">
-            <h3>Student Portal</h3>
-        </div>
-
-        <ul class="nav-list">
-           
+<ul class="nav-list" >
             <li>
-                <NavLink href="/profile" class="nav-link">
-                    👤 Profile
+                <NavLink href="/home" class="nav-link">
+                    ☰ Menu
                 </NavLink>
             </li>
 
-            <li>
-                <NavLink href="/student" class="nav-link">
-                    ⚙️ Settings
+<li >
+<NavLink href="/profile" class="nav-link" >
+👤 Profile
+</NavLink >
+</li >
+
+<li >
+<NavLink href="/student" class="nav-link" >
+⚙️ Enrollment
+</NavLink >
+</li >
+
+
+
+<li class="logout" >
+<NavLink href="/" class="nav-link" >
+🚪 Logout
+</NavLink >
+</li >
+
+<li class="fees" >
+<NavLink href="/fees" class="nav-link" >
+💰 Fees
+</NavLink >
+
+</li >
+
+<li class="Courses" >
+<NavLink href="/Course_Compilition" class="nav-link" >
+🎓 Course Compilition
+</NavLink >
+
+</li >
+
+            <li class="Results">
+                <NavLink href="/results" class="nav-link">
+                    📊 Results
                 </NavLink>
             </li>
 
@@ -69,22 +102,18 @@
                     ❓ Help
                 </NavLink>
             </li>
+</ul >
+</nav >
+</div >
 
-            <li class="logout">
-                <NavLink href="/" class="nav-link">
-                    🚪 Logout
-                </NavLink>
-            </li>
-        </ul>
-    </nav>
-</div>
+</body>
+<style >
 
-<style>
-    .profile-container {
-        display: flex;
-        justify-content: center;
-        margin-top: 40px;
-    }
+.profile-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
 
     .profile-card {
         width: 440px;
@@ -168,8 +197,5 @@
     {
         nav.NavigateTo("/student");
        
-
     }
-
-    
 }

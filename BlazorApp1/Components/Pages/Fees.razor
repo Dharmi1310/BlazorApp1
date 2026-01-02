@@ -1,8 +1,7 @@
-﻿@page "/help"
-@inject NavigationManager navi
+﻿@page "/fees"
 
-<h3>There is No-one to help<br /> So help yourself</h3>
-<button class="exit-btn" @onclick="exit">Exit</button>
+<h3>Fees</h3>
+
 <div>
 	<nav class="sidebar">
 		<div class="nav-header">
@@ -63,18 +62,7 @@
 		</ul>
 	</nav>
 </div>
-<style>
-	.exit-btn{
-		
-		background-color: tomato;
-		color: white;
-	}
-</style>
 
-@code{
-	void exit()
-	{
-		navi.NavigateTo("/student");
-	}
+@code {
 
 }

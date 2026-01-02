@@ -31,7 +31,6 @@
     }
 }
 
-
 <div class="student-container">
 
     <h2 class="page-title">Student Management Portal</h2>
@@ -64,6 +63,8 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Class</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
                 </tr>
             </thead>
             <tbody>
@@ -73,6 +74,8 @@
                         <td>@s.Student_Id</td>
                         <td>@s.Student_Name</td>
                         <td>@s.Student_Class</td>
+                        <td>@s.Phone_number</td>
+                        <td>@s.email_id</td>
                     </tr>
                 }
             </tbody>
@@ -80,11 +83,16 @@
     </div>
     <nav class="sidebar">
         <div class="nav-header">
-            <h3>Student Portal</h3>
+            <h3> Student Portal</h3>
         </div>
 
         <ul class="nav-list">
-           
+
+            <li>
+                <NavLink href="/home" class="nav-link">
+                    ☰ Menu
+                </NavLink>
+            </li>
 
             <li>
                 <NavLink href="/profile" class="nav-link">
@@ -94,19 +102,40 @@
 
             <li>
                 <NavLink href="/student" class="nav-link">
-                    ⚙️ Settings
+                    ⚙️ Enrollment
+                </NavLink>
+            </li>
+
+
+            <li class="logout">
+                <NavLink href="/" class="nav-link">
+                    🚪 Logout
+                </NavLink>
+            </li>
+
+            <li class="fees">
+                <NavLink href="/fees" class="nav-link">
+                    💰 Fees
+                </NavLink>
+
+            </li>
+
+            <li class="Courses">
+                <NavLink href="/Course_Compilition" class="nav-link">
+                    🎓 Course Compilition
+                </NavLink>
+
+            </li>
+
+            <li class="Results">
+                <NavLink href="/results" class="nav-link">
+                    📊 Results
                 </NavLink>
             </li>
 
             <li>
                 <NavLink href="/help" class="nav-link">
                     ❓ Help
-                </NavLink>
-            </li>
-
-            <li class="logout">
-                <NavLink href="/" class="nav-link">
-                    🚪 Logout
                 </NavLink>
             </li>
         </ul>

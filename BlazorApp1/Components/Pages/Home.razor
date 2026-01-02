@@ -2,8 +2,200 @@
 
 <PageTitle>Home</PageTitle>
 
-<h3>
-    Hello Everyone
 
-</h3>
-<h4> Please Login to Continue</h4>
+<nav class="sidebar">
+    <div class="nav-header">
+        <h3> Student Portal</h3>
+    </div>
+
+    <ul class="nav-list">
+
+        <li>
+            <NavLink href="/profile" class="nav-link">
+                ☰ Menu
+            </NavLink>
+        </li>
+        
+    </ul>
+</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>College Student Portal</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f8ff;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #0a3d62;
+            padding: 15px 30px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin-left: 20px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(10,61,98,0.8), rgba(10,61,98,0.8)), url('https://www.univariety.com/blog/wp-content/uploads/2020/08/Blog-banner-image-1.jpg') center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        /* Section */
+        .section {
+            padding: 50px 10%;
+            background-color: white;
+            margin-top: 20px;
+        }
+
+        .section h3 {
+            color: #0a3d62;
+            margin-bottom: 15px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #eaf2ff;
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .card h4 {
+            color: #0a3d62;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0a3d62;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>BlueWave College Portal</h1>
+        @* <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul> *@
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <h2>Welcome to BlueWave Institute of Technology</h2>
+        <p>Empowering Students for a Brighter Future</p>
+    </div>
+
+    <!-- About -->
+    <div class="section">
+        <h3>About the College</h3>
+        <p>
+            BlueWave Institute of Technology is a premier engineering and management college
+            located in India. Established with the vision of delivering quality education,
+            the college focuses on academic excellence, innovation, and holistic development
+            of students.
+        </p>
+    </div>
+
+    <!-- Courses -->
+    <div class="section">
+        <h3>Courses Offered</h3>
+        <div class="cards">
+            <div class="card">
+                <h4>B.Tech</h4>
+                <p>Computer Science, ECE, EEE, Mechanical, Civil</p>
+            </div>
+            <div class="card">
+                <h4>M.Tech</h4>
+                <p>Advanced engineering specializations</p>
+            </div>
+            <div class="card">
+                <h4>MBA</h4>
+                <p>Business Administration & Management</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Facilities -->
+    <div class="section">
+        <h3>Campus Facilities</h3>
+        <div class="cards">
+            <div class="card">
+                <h4>Library</h4>
+                <p>Well-stocked digital and physical library</p>
+            </div>
+            <div class="card">
+                <h4>Laboratories</h4>
+                <p>Modern labs with advanced equipment</p>
+            </div>
+            <div class="card">
+                <h4>Placements</h4>
+                <p>Strong placement support and career guidance</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2026 BlueWave Institute of Technology | Student Portal</p>
+    </div>
+
+</body>
+</html>
+

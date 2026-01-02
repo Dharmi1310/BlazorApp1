@@ -1,8 +1,6 @@
-﻿@page "/help"
-@inject NavigationManager navi
+﻿@page "/Course_Compilition"
 
-<h3>There is No-one to help<br /> So help yourself</h3>
-<button class="exit-btn" @onclick="exit">Exit</button>
+<h3>Course_Compilition</h3>
 <div>
 	<nav class="sidebar">
 		<div class="nav-header">
@@ -10,12 +8,12 @@
 		</div>
 
 		<ul class="nav-list">
+
 			<li>
 				<NavLink href="/home" class="nav-link">
 					☰ Menu
 				</NavLink>
 			</li>
-
 			<li>
 				<NavLink href="/profile" class="nav-link">
 					👤 Profile
@@ -29,6 +27,7 @@
 			</li>
 
 			
+
 			<li class="logout">
 				<NavLink href="/" class="nav-link">
 					🚪 Logout
@@ -59,22 +58,9 @@
 					❓ Help
 				</NavLink>
 			</li>
-
 		</ul>
 	</nav>
 </div>
-<style>
-	.exit-btn{
-		
-		background-color: tomato;
-		color: white;
-	}
-</style>
-
-@code{
-	void exit()
-	{
-		navi.NavigateTo("/student");
-	}
+@code {
 
 }
