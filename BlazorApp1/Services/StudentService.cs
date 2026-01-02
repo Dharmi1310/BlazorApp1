@@ -90,13 +90,50 @@ namespace BlazorApp1.Services
             using var con = new MySqlConnection(_conn);
             con.Open();
 
-            string query = "SELECT COUNT(*) FROM student WHERE userid=@userid AND password=@password";
+            string query = "SELECT COUNT(*) FROM userdetails WHERE userid=@userid AND password=@password";
             using var cmd = new MySqlCommand(query, con);
 
             cmd.Parameters.AddWithValue("@userid", userid);
             cmd.Parameters.AddWithValue("@password", password);
             
             return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
+        }
+        public List<Courses> getcourses()
+        {
+            var list = new List<Courses>();
+
+            using var con = new MySqlConnection(_conn);
+            con.Open();
+
+            string query = "SELECT * FROM courses ";
+            using var cmd = new MySqlCommand(query, con);
+            using var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                list.Add(new Courses
+                {
+
+                    S_no = reader.GetInt32("S_no"),
+                    course_name = reader.GetString("course_name"),
+                    status = reader.GetString("status")
+                });
+            }
+            return list;
+
+        }
+        public void AddUser(Userdetails ud)
+        {
+            using var con = new MySqlConnection(_conn);
+            con.Open();
+
+            string query = "INSERT INTO student(userid,password) VALUES(@userid,@password)";
+            using var cmd = new MySqlCommand(query, con);
+
+            cmd.Parameters.AddWithValue("@userid", ud.userid);
+            cmd.Parameters.AddWithValue("@password", ud.password);
+
+            cmd.ExecuteNonQuery();
         }
 
     }

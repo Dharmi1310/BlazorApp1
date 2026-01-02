@@ -1,5 +1,6 @@
 ﻿@page "/help"
 @inject NavigationManager navi
+@rendermode InteractiveServer
 
 <h3>There is No-one to help<br /> So help yourself</h3>
 <button class="exit-btn" @onclick="exit">Exit</button>
@@ -12,7 +13,7 @@
 		<ul class="nav-list">
 			<li>
 				<NavLink href="/home" class="nav-link">
-					☰ Menu
+					☰ Home
 				</NavLink>
 			</li>
 

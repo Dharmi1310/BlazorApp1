@@ -1,4 +1,6 @@
 ﻿@page "/Course_Compilition"
+@inject StudentService service
+@rendermode InteractiveServer
 
 <h3>Course_Compilition</h3>
 <div>
@@ -11,9 +13,10 @@
 
 			<li>
 				<NavLink href="/home" class="nav-link">
-					☰ Menu
+					☰ Home
 				</NavLink>
 			</li>
+
 			<li>
 				<NavLink href="/profile" class="nav-link">
 					👤 Profile
@@ -25,8 +28,6 @@
 					⚙️ Enrollment
 				</NavLink>
 			</li>
-
-			
 
 			<li class="logout">
 				<NavLink href="/" class="nav-link">
@@ -61,6 +62,47 @@
 		</ul>
 	</nav>
 </div>
-@code {
+<button class="btn view-btn" @onclick="getallcourses">View All</button>
+<style>
+	.status-pass {
+		color : green;
+		font-weight: bold;
+	}
 
+	.status-fail {
+		color: red;
+		font-weight: bold;
+	}
+</style>
+
+<table class="student-table">
+	<thead>
+		<tr>
+			<th>S_no</th>
+			<th>Course Name</th>
+			<th>Status</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var s in courses)
+		{
+			<tr>
+				<td>@s.S_no</td>
+				<td>@s.course_name</td>
+				<td class="@(s.status?.ToLower() == "pass" ? "status-pass" : "status-fail")">
+					@s.status
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+@code {
+	Courses course = new();
+	List<Courses> courses = new();
+
+	void getallcourses()
+	{
+		courses = service.getcourses();
+	}
 }

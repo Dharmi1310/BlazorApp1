@@ -1,28 +1,19 @@
-﻿@page "/"
+﻿@page "/signup"
 @inject StudentService service
 @inject NavigationManager nav
 @rendermode InteractiveServer
-<!--
-    <h3>Login</h3>
-
-<input placeholder="UserId" @bind="userid" /><br />
-<input type="password" placeholder="Password" @bind="password" /><br />
-<button @onclick="login">Login</button>
-
--->
 
 <p style="color:red">@message</p>
 
 <div class="login-container">
     <div class="login-card">
-        <h2 class="title">Student Portal Login</h2>
-        <p class="subtitle">Access your academic dashboard</p>
+        <h2 class="title">Create acoount</h2>
+        <p class="subtitle">Enter your details</p>
 
         <input class="input-box" placeholder="User ID" @bind="userid" />
         <input class="input-box" type="password" placeholder="Password" @bind="password" />
-        <p>Don't have an account<a href="/signup">Signup </a></p>
 
-        <button class="login-btn" @onclick="login">Login</button>
+        <button class="login-btn" @onclick="signup">Sign up</button>
 
         @if (!string.IsNullOrEmpty(message))
         {
@@ -40,7 +31,7 @@
         background: linear-gradient(to right, #2c3e50, #3498db);
         font-family: 'Segoe UI', sans-serif;
     }
-     
+
     .login-card {
         width: 350px;
         padding: 30px;
@@ -101,15 +92,15 @@
 
 @code {
     string userid, password, message;
-    Student ud = new();
+    Userdetails ud = new();
 
-    void login()
+    List<Userdetails> userdetail = new();
+
+    void signup()
     {
-        if (service.ValidateUser(userid, password))
-            nav.NavigateTo("/home");
-            
-    else
-            message = "Invalid UserId or Password";
-
+        service.AddUser(ud);
+        ud = new();
+        nav.NavigateTo("/");
     }
+
 }
